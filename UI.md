@@ -36,9 +36,9 @@ UI 오브젝트는 빛의 영향을 받지 않고, 정면에서 바라본 시점
     
             Canvas의 위치와 크기를 자유롭게 설정할 수 있다. 위치와 크기는 Rect Transform 컴포넌트의 값을 변경한다.
       
-            |설정 항목                   |기능                             |
-            |---------------------------|---------------------------------|
-            |Event Camera               |UI에 이벤트 처리를 위한 설정 항목.      |
-            |Sorting Layer              |Canvas가 여러 개 있을 때 그룹으로 나눈다.|
-            |Order in Layer             |그리기 순서를 설정한다.|
-            |Additional Shader Channels |UI에 셰이더 채널을 추가합니다.|
+            |설정 항목                   |기능                                      |
+            |---------------------------|------------------------------------------|
+            |Event Camera               |UI에 이벤트 처리를 위한 설정 항목.          |
+            |Sorting Layer              |Canvas가 여러 개 있을 때 그룹으로 나눈다.   |
+            |Order in Layer             |그리기 순서를 설정한다.                    |
+            |Additional Shader Channels |UI에 셰이더 채널을 추가합니다.             |
