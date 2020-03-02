@@ -3,7 +3,8 @@ UI 오브젝트를 배치하기 위한 영역.
 
 # Component
 
-- Rect Transform  
+- Rect Transform
+
     UI 오브젝트의 위치나 각도, 크기 등의 정보를 관리한다.
 
     |설정 항목          |기능|
@@ -32,7 +33,7 @@ Renderer Mode에 따라 설정할 수 있는 항목이 달라진다.
 - Renderer Mode 드롭다운 메뉴
 
     - Screen Space - OverLay
-        
+    
         UI가 가장 앞쪽에 표시된다. 다음과 같은 항목을 설정할 수 있다.
         
         |설정 항목           |기능      |
