@@ -26,4 +26,8 @@
         |Disabled Color | 비활성 상태의 버튼색상.|
         |Color Multiplier||
         |Fade Duration| 색상 지속시간을 설정한다.|
+    - Sprite Swap
+    - Animation
+- Navigation
+- On Click ()
 - - -
