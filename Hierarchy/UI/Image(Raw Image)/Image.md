@@ -14,4 +14,4 @@
 Raycast 대상 여부를 선택한다.
 - Image Type
 - Set Native Size
-- - -
+- - - -
