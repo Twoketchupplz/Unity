@@ -17,3 +17,23 @@
     월드 공간에서 트랜스폼의 위치를 반환한다.
 
 - - -
+
+
+## Public Function
+- `int` __GetSiblingIndex__  
+    형제 중 이 오브젝트의 인덱스를 가져온다.
+
+- `void` __SetAsFirstSibling__  
+    이 오브젝트의 인덱스를 첫번째로 변경한다.
+
+- `void` __SetAsLastSibling__
+    이 오브젝트의 인덱스를 마지막으로 변경한다.
+
+- `void` __SetSiblingIndex__  
+    이 오브젝트의 인덱스를 지정한다.
+    ``` c#
+    public void SetSiblingIndex(int index);
+    ```
+    Parameter||
+    ---|---
+    index | 지정할 인덱스
