@@ -6,8 +6,8 @@ UI 오브젝트를 배치하기 위한 영역.
 ## Rect Transform
 UI 오브젝트의 위치나 각도, 크기 등의 정보를 관리한다.
 
-프로퍼티 |기능 
---|--
+프로퍼티     |기능 
+-----------------------------------|--
 __Pos X, Pos Y, Pos Z__ | UI 오브젝트의 위치(Canvas에서 상대적인 위치).
 __Width, Height__ | UI 오브젝트의 넓이와 높이를 설정한다.
 __Right, Left, Top, Bottom__ | Anchor를 설정할 경우 나타난다. Margin 거리를 조정한다.
@@ -51,6 +51,7 @@ __Additional Shader Channels__ | UI에 셰이더 채널을 추가합니다.
 
 ## Canvas Scaler
 추가될 UI 오브젝트의 크기를 조절한다.
+
 프로퍼티   |기능 
 ---------------------|----------
 __UI Scale Mode__|환경에 따른 UI 오브젝트의 크기 조절 방법을 선택한다.
