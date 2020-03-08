@@ -78,6 +78,7 @@ Constant Physical Size| 인치, 밀리미터 등 실제의 물리적 크기를 �
 # 추가할 수 있는 Component
 ## Horizontal Layout Group (Script)
 자식 오브젝트를 수평기준으로 정렬한다.
+
 프로퍼티|기능|
 --|--
 __Padding__ | 레이아웃 그룹 에지의 패딩.
