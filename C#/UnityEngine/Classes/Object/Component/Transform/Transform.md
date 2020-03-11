@@ -20,8 +20,20 @@
 
 
 ## Public Function
+- `Transform` __Find__  
+    해당 이름의 자식 트랜스폼을 반환한다.
+    ``` c#
+    public Transform Find(string name);
+    ```
+
+- `Transform` __GetChild__
+    해당 인덱스의 자식 트랜스폼을 반환한다.
+    ``` c#
+    public Transform GetChild(int index);
+    ```
+
 - `int` __GetSiblingIndex__  
-    형제 중 이 오브젝트의 인덱스를 가져온다.
+    형제 중 이 오브젝트의 인덱스를 반환한다.
 
 - `void` __SetAsFirstSibling__  
     이 오브젝트의 인덱스를 첫번째로 변경한다.
