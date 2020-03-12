@@ -1,5 +1,7 @@
 # EndDragHandler
-OnEndDrag 콜백을 받기 위한 인터페이스. 드래그 종료시 호출된다. `IDragHandler`를 추가적으로 구현해야 한다.
+OnEndDrag 콜백을 받기 위한 인터페이스. 
+
+`IDragHandler`를 추가적으로 구현해야 한다.
 
 ## Public Function
 - `void` OnEndDrag  

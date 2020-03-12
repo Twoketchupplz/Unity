@@ -1,5 +1,7 @@
 # IBeginDragHandler
-OnBeginDrag 콜백을 받기위한 인터페이스. `IDragHandler`를 추가적으로 구현해야 한다.
+OnBeginDrag 콜백을 받기위한 인터페이스. 
+
+`IDragHandler`를 추가적으로 구현해야 한다.
 
 ## Public Function
 - `void` OnBeginDrag  
