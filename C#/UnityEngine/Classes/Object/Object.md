@@ -31,8 +31,23 @@
 
 
 ## Static Function
-- __Destroy__
-- 추가 바람
+- __Destroy__  
+    게임 오브젝트나 에셋을 파괴한다.
+
+- __Instantiate__  
+    오브젝트의 인스턴스 ID를 반환한다. 오브젝트를 복사한다고 생각하면 된다.
+    ```c#
+    public static Object Instantiate(Object original);  
+    public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
+    ```
+    
+    Parameter ||
+    -- | --
+    original | 복사하고 싶은 오브젝트
+    position | 새 오브젝트 위치
+    rotation | 새 오브젝트 회전각
+
+
 - - -
 
 
