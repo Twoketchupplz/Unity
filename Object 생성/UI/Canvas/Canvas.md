@@ -12,9 +12,9 @@ __Pos X, Pos Y, Pos Z__ | UI 오브젝트의 위치(Canvas에서 상대적인 �
 __Width, Height__ | UI 오브젝트의 넓이와 높이를 설정한다.
 __Right, Left, Top, Bottom__ | Anchor를 설정할 경우 나타난다. Margin 거리를 조정한다.
 __Anchors__ | UI 오브젝트를 배치할 떄의 기준점(0 ~ 1). Canvas에서 UI 오브젝트의 위치를 고정하는 기능이다. 실행되는 기기의 화면 비율이나 해상도가 변하면 Anchor를 기준으로 UI 오브젝트의 위치가 조정된다. Anchor는 Canvas 안쪽에 위치시켜야 한다. 
-Anchor Presets | 좌측의 그림을 클릭하면 엥커의 위치를 주어진 프리셋으로 쉽게 지정할 수 있다.
+&nbsp;Anchor Presets | 좌측의 그림을 클릭하면 엥커의 위치를 주어진 프리셋으로 쉽게 지정할 수 있다.
 |- Stretch 모드 | 2개 이상의 지점을 정하여 UI 오브젝트를 해상도나 화면 비율에 맞춰 자동으로 늘려주는 모드. Anchor는 상하좌우로 나누어 배치할 수 있다. Anchor 프리셋에서 선택하거나 마우스로 드래그하여 나눈다.
-Min, Max | 
+|- Min, Max | 
 __Pivot__ | UI 오브젝트의 위치나 크기의 '기준점'. 조작 도구로 Rect 도구를 선택하면 표시된다
 __Scale__ | UI 오브젝트의 자체 크기. Width, Height로 설정한 크기를 비율로 설정한 값이다.
 
@@ -27,22 +27,22 @@ __Scale__ | UI 오브젝트의 자체 크기. Width, Height로 설정한 크기�
 ## Canvas
 Renderer Mode에 따라 설정할 수 있는 항목이 달라진다.
 
-프로퍼티 | 기능
-----------------------------------|------------------
-__Renderer Mode__| 스크린 또는 월드 공간에 렌더링하기 위해 사용된다.
-Screen Space - OverLay | UI 항목이 씬의 가장 상위계층으로 앞쪽에 표시된다. 씬이나 카메라에 상관없이 렌더링한다. 선택시(default) 아래 항목들을 조정할 수 있다.
+프로퍼티&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 기능
+----------------|------------------
+__Renderer Mode__| 스크린 또는 월드 공간에 렌더링하기 위해 사용된다. 아래 3개의 드롭다운 메뉴가 있다.
+&nbsp;&nbsp;Screen Space - OverLay | UI 항목이 씬의 가장 상위계층으로 앞쪽에 표시된다. 씬이나 카메라에 상관없이 렌더링한다. 선택시(default) 아래 항목들을 조정할 수 있다.
 |- Pixel Perfect | UI가 확실하게 보이는 상태로 한다.
 |- Sort Order |Canvas가 여러 개라면 순서를 설정한다.
 |- Target Display|카메라가 여러 대 있을 때 그리는 카메라를 전환한다.
 ||
-Screen Space - Camera | 마치 카메라가 특정 레이어에 위치한 것처럼 렌더링 된다. 씬을 표시하는 카메라 외에 UI를 표시하는 카메라를 추가할 수 있으며 그리기 순서를 조절해 오브젝트가 UI보다 앞에 보이게 할 수 있다. 선택시 아래 항목들을 조정할 수 있다.
+&nbsp;&nbsp;Screen Space - Camera | 마치 카메라가 특정 레이어에 위치한 것처럼 렌더링 된다. 씬을 표시하는 카메라 외에 UI를 표시하는 카메라를 추가할 수 있으며 그리기 순서를 조절해 오브젝트가 UI보다 앞에 보이게 할 수 있다. 선택시 아래 항목들을 조정할 수 있다.
 |- Pixel Perfect |UI가 확실하게 보이는 상태로 한다.
 |- Render Camera |UI용 카메라 설정. UI만 표시되도록 Layer를 설정해야 한다.
 |- Plane Distance |카메라와 Canvas의 거리.
 |- Order in Layer |그리기 순서를 설정한다.
 ||(+ p193 culling Mask, Clear Flags...)
 ||
-World Space | Canvas가 일반 오브젝트처럼 인식된다. Canvas의 위치와 크기를 자유롭게 설정할 수 있다. 위치와 크기는 Rect Transform 컴포넌트의 값을 변경한다.  선택시 아래 항목들을 조정할 수 있다.
+&nbsp;&nbsp;World Space | Canvas가 일반 오브젝트처럼 인식된다. Canvas의 위치와 크기를 자유롭게 설정할 수 있다. 위치와 크기는 Rect Transform 컴포넌트의 값을 변경한다.  선택시 아래 항목들을 조정할 수 있다.
 |- Event Camera | UI에 이벤트 처리를 위한 설정 항목.
 |- Sorting Layer | Canvas가 여러 개 있을 때 그룹으로 나눈다.
 |- Order in Layer |그리기 순서를 설정한다.
