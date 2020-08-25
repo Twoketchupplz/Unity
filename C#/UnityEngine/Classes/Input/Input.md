@@ -1,5 +1,8 @@
 # Input
-입력 시스템을 다루기 위한 클래스.
+입력 시스템을 다루기 위한 클래스. `Input Manager`에 설정된 각 축을 읽고 모바일 장치의 멀티터치나 가속도계 데이터에 접근하는 경우 사용되는 클래스.
+
+## Virtual Axes
+"Horizontal"과 "Vertical"은 조이스틱에 매핑되어 있고, 'A, W, D, S'는 각 방향키, "Mouse X"와 "Mouse Y"는 마우스 델타에 매핑 되어있다. "Fire1", "Fire2", "Fire3"는 각각 Ctrl, Alt, Cmd키와 3개의 마우스 버튼 또는 조이스틱 버튼에 매핑 되어 있다. `Input Manager`에서 새로운 입력 축을 추가할 수 있다.
 
 ## Static Variables
 - `int` touchCount  
