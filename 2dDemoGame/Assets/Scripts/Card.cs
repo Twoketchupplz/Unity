@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Card : MonoBehaviour, IBeginDragHandler ,IDragHandler, IEndDragHandler
+public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    Vector2 currentPosition;
+    Vector2 beginPosition, currentPosition;
+    public Camera CameraMain;
 
     // Start is called before the first frame update
     void Start()
@@ -16,8 +17,14 @@ public class Card : MonoBehaviour, IBeginDragHandler ,IDragHandler, IEndDragHand
     // Update is called once per frame
     void Update()
     {
-        
     }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        beginPosition = Input.mousePosition;
+        Debug.Log("Begin");
+    }
+
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Drag");
@@ -25,15 +32,9 @@ public class Card : MonoBehaviour, IBeginDragHandler ,IDragHandler, IEndDragHand
         transform.position = currentPosition;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        Debug.Log("Begin");
-    }
-
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("End");
+        transform.position = beginPosition;
     }
 }
-
-
