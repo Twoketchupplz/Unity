@@ -6,12 +6,12 @@ using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    Vector2 beginPosition, currentPosition;
-    public Camera CameraMain;
+    Vector2 initialPosition, beginPosition, currentPosition;
 
     // Start is called before the first frame update
     void Start()
     {
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -35,6 +35,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("End");
-        transform.position = beginPosition;
+        transform.position = initialPosition;
     }
 }
