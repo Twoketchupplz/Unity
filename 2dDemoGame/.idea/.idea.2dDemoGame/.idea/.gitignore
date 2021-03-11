@@ -11,3 +11,34 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+
+# Unity generated
+Temp/
+Obj/
+UnityGenerated/
+Library/
+
+#CSharp
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+
+# OS generated
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+GraphicsSettings.asset
+ProjectSettings.asset
+ProjectVersion.txt
