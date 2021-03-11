@@ -18,14 +18,7 @@ public class Deck : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-        deckList = new List<GameObject>();
-        for (int cardIndex = 0; cardIndex < deckCount; cardIndex++)
-        {
-            GameObject deckCard = Instantiate(cardPrefab);
-            deckList.Add(deckCard);
-        }
 
-        for (int i = 0; i < deckList.Count; i++) Debug.Log(deckList[i]);
     }
 
     void Update()

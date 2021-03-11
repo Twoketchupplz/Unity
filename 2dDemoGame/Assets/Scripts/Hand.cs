@@ -4,8 +4,9 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Hand : MonoBehaviour, IDropHandler
+public class Hand : MonoBehaviour
 {
+    public GameObject cardPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +19,11 @@ public class Hand : MonoBehaviour, IDropHandler
         
     }
 
-    public void OnDrop(PointerEventData eventData)
+    void Draw(Transform card)
     {
-        throw new System.NotImplementedException();
+        GameObject childCard = Instantiate(cardPrefab);
+        childCard.transform.SetParent(transform);
+        childCard.transform.localScale = Vector3.one;
     }
+    
 }
