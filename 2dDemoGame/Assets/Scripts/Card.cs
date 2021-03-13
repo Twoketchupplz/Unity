@@ -7,11 +7,14 @@ using UnityEngine.EventSystems;
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     Vector2 initialPosition, beginPosition, currentPosition;
-
+    private int idx;
+    public GameObject DummyCard;
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = transform.position;
+        idx = transform.GetSiblingIndex();
+        Debug.Log("Card index is "+ idx);
     }
 
     // Update is called once per frame
@@ -21,7 +24,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        beginPosition = Input.mousePosition;
         Debug.Log("Begin");
     }
 
@@ -35,6 +37,5 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("End");
-        transform.position = initialPosition;
     }
 }

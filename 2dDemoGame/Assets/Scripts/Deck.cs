@@ -6,14 +6,18 @@ using UnityEngine.EventSystems;
 
 public class Deck : MonoBehaviour, IPointerClickHandler
 {
-    public int deckCount;
-    private List<GameObject> deckList;
-    private Transform root;
-    public GameObject cardPrefab;
+    public int DeckSize;
+    public GameObject CardPrefab;
+    public GameObject handObj;
+    private List<GameObject> _deckList;
+    private Transform _root;
+    private Hand handScript;
 
     private void Awake()
     {
-        root = transform.root;
+        _root = transform.root;
+        handScript = handObj.GetComponent<Hand>();
+        // _root.GetChild(2)
     }
 
     void Start()
@@ -28,6 +32,8 @@ public class Deck : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         Debug.Log("clicked {deck}");
-        root.BroadcastMessage("Draw", transform, SendMessageOptions.DontRequireReceiver);
+        // _root.BroadcastMessage("Draw", transform, SendMessageOptions.DontRequireReceiver);
+        // 위 BroadcastMessage나 SendMessage 함수는 비용이 너무 크다. 원하는 함수가 어디있는지 알고있으므로 아래와 같이 바꿔준다.
+        handObj.GetComponent<Hand>().Draw();
     }
 }
