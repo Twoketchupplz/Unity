@@ -6,15 +6,18 @@ using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    Vector2 initialPosition, beginPosition, currentPosition;
-    private int idx;
-    public GameObject DummyCard;
+    // public GameObject hand;
+    private Transform _root;
+    private Transform _initParent;
+    private int _initIdx;
+    private Vector2 _currentPosition;
     // Start is called before the first frame update
     void Start()
     {
-        initialPosition = transform.position;
-        idx = transform.GetSiblingIndex();
-        Debug.Log("Card index is "+ idx);
+        _root = transform.root;
+        _initParent = transform.parent;
+        _initIdx = transform.GetSiblingIndex();
+        Debug.Log("Card index is "+ _initIdx);
     }
 
     // Update is called once per frame
@@ -25,17 +28,22 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Begin");
+        transform.SetParent(_root);
+        // GetComponentInParent<Hand>().ParentDummyCard(cardIdx);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("Drag");
-        currentPosition = Input.mousePosition;
-        transform.position = currentPosition;
+        _currentPosition = Input.mousePosition;
+        transform.position = _currentPosition;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.SetParent(_initParent);
+        transform.SetSiblingIndex(_initIdx);
         Debug.Log("End");
+        // GetComponentInParent<Hand>().UnparentDummyCard(transform);
     }
 }

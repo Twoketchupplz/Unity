@@ -7,8 +7,8 @@ using UnityEngine.EventSystems;
 public class Deck : MonoBehaviour, IPointerClickHandler
 {
     public int DeckSize;
-    public GameObject CardPrefab;
     public GameObject handObj;
+    
     private List<GameObject> _deckList;
     private Transform _root;
     private Hand handScript;
@@ -34,6 +34,6 @@ public class Deck : MonoBehaviour, IPointerClickHandler
         Debug.Log("clicked {deck}");
         // _root.BroadcastMessage("Draw", transform, SendMessageOptions.DontRequireReceiver);
         // 위 BroadcastMessage나 SendMessage 함수는 비용이 너무 크다. 원하는 함수가 어디있는지 알고있으므로 아래와 같이 바꿔준다.
-        handObj.GetComponent<Hand>().Draw();
+        handScript.Draw();
     }
 }
