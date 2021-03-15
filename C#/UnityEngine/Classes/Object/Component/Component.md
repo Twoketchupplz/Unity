@@ -31,7 +31,7 @@
     public void BroadcastMessage(string methodName, SendMessageOptions options);
     ```
     Parameter||
-    --|--
+    ---|---
     methodName|호출할 메서드 이름
     parameter|해당 메서드에 전달할 임의의 파라미터
     options|해당하는 메서드가 없을때 오류 발생에 대한 메시지. 인수를 넣지 않으면 무시할 수 있다. `SendMessageOptions.RequireReceiver`으로 지정하면 수신자를 찾을 수 없는 경우에, 콘솔에 오류가 출력된다.
@@ -43,7 +43,7 @@
     public T GetComponent();
     ```
     Parameter||
-    --|--
+    ---|---
     T | 가져올 컴포넌트 유형
 
 - - -

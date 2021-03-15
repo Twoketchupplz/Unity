@@ -39,10 +39,11 @@
     ```c#
     public static Object Instantiate(Object original);  
     public static Object Instantiate(Object original, Vector3 position, Quaternion rotation);
+    public static Object Instantiate(Object original, Transform parent, bool worldPositionStays); 
     ```
     
     Parameter ||
-    -- | --
+    ---|---
     original | 복사하고 싶은 오브젝트
     position | 새 오브젝트 위치
     rotation | 새 오브젝트 회전각

@@ -11,7 +11,7 @@
     public static bool RectangleContainsScreenPoint(RectTransform rect, Vector2 screenPoint);
     ```
     Parameter||
-    --|--
+    ---|---
     rect        | 지정할 `RectTransform`
     screenPoint | 포함 여부를 확인할 포인트
     cam (optional)| 메소드를 실행할 카메라
