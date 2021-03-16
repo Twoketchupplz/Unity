@@ -7,16 +7,17 @@ using UnityEngine.EventSystems;
 public class Hand : MonoBehaviour
 {
     public GameObject childCard;
-    public GameObject dummyCard;
+    public GameObject prefabDummy;
     public int handLimit;
     private Transform _root;
-    private GameObject dummy;
+    private GameObject _dummyCard;
     private int _dummyIdx;
     // Start is called before the first frame update
     void Start()
     {
         _root = transform.root;
-        dummy = Instantiate(dummyCard, _root, true);
+        _dummyCard = Instantiate(prefabDummy, _root, true);
+        _dummyCard.transform.localScale = Vector3.one;
         Debug.Log("Hand root: ", _root);
     }
 
@@ -32,27 +33,24 @@ public class Hand : MonoBehaviour
         print(handIndex);
         if (transform.childCount < handLimit)
         {
-            GameObject childCard = Instantiate(this.childCard);
-            Debug.Log("Instantiate");
+            GameObject childCard = Instantiate(this.childCard, transform, true);
             childCard.transform.localScale = Vector3.one;
-            childCard.transform.SetParent(transform);
         }
     }
 
-    // public void ParentDummyCard(int cardIndex)
-    // {
-    //     _dummyIdx = cardIndex;
-    //     // transform.setParent()와 transform.parent의 차이
-    //     // https://answers.unity.com/questions/1153512/transformparent-vs-transformsetparent.html ,https://kukuta.tistory.com/177
-    //     dummy.transform.localScale = Vector3.one;
-    //     dummy.transform.SetSiblingIndex(_dummyIdx);
-    // }
+    public void ParentDummyCard(int cardIndex)
+    {
+        _dummyIdx = cardIndex;
+        _dummyCard.transform.SetParent(transform);
+        // transform.setParent()와 transform.parent의 차이
+        // https://answers.unity.com/questions/1153512/transformparent-vs-transformsetparent.html ,https://kukuta.tistory.com/177
+        _dummyCard.transform.localScale = Vector3.one;
+        _dummyCard.transform.SetSiblingIndex(_dummyIdx);
+    }
 
-    // public void UnparentDummyCard(Transform card)
-    // {
-    //     dummyCard.transform.SetParent(_root);
-    //     card.SetParent(transform);
-    //     card.SetSiblingIndex(_dummyIdx);
-    // }
+    public void UnparentDummyCard()
+    {
+        _dummyCard.transform.SetParent(_root);
+    }
     
 }
