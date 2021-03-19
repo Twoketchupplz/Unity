@@ -4,13 +4,14 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Hand : MonoBehaviour
+public class Hand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject childCard;
     public GameObject prefabDummy;
     public int handLimit;
     private Transform _root;
     private GameObject _dummyCard;
+    private bool _pntIn;
     private int _dummyIdx;
     // Start is called before the first frame update
     void Start()
@@ -53,4 +54,16 @@ public class Hand : MonoBehaviour
         _dummyCard.transform.SetParent(_root);
     }
     
+    // call-back
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _pntIn = true;
+        print(_pntIn);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        _pntIn = false;
+        print(_pntIn);
+    }
 }
