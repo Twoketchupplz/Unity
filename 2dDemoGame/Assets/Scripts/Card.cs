@@ -38,7 +38,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("Drag");
         _currentPosition = Input.mousePosition;
         transform.position = _currentPosition;
     }
@@ -46,9 +45,20 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         _parentScript.UnparentDummyCard();
+        // 현재 마우스 위치가 초기 부모(hand)의 RectTransform 안에 있다면 오브젝트가 되돌아가 가고
+        if (RectTransformUtility.RectangleContainsScreenPoint(_initParent.GetComponent<RectTransform>(), _currentPosition))
+        {
+            transform.SetParent(_initParent);
+            transform.SetSiblingIndex(_initIdx);
+        }
+        // 그렇지 않다면 이 오브젝트를 Destroy한다.
+        else
+        {
+            Destroy(gameObject);
+        }
         Debug.Log("init Parent: ", _initParent);
-        transform.SetParent(_initParent);
-        transform.SetSiblingIndex(_initIdx);
+        // 아무래도 콜백 함수가 끝날 때까지 다른 콜백함수가 끼어들 수 없는듯하다.
+        // 그리고 자식 오브젝트가 부모 오브젝트의 콜백함수를 사용하는듯?
         // GetComponentInParent<Hand>().UnparentDummyCard(transform);
     }
 }

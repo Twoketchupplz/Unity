@@ -4,21 +4,25 @@ using System.Threading;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Hand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Hand : MonoBehaviour
 {
     public GameObject childCard;
     public GameObject prefabDummy;
+
+    [HideInInspector]
+    public bool pntIn;
+    [HideInInspector]
     public int handLimit;
+
     private Transform _root;
-    private GameObject _dummyCard;
-    private bool _pntIn;
-    private int _dummyIdx;
+    private GameObject _invisibleCard;
+    private int _ivCardIdx;
     // Start is called before the first frame update
     void Start()
     {
         _root = transform.root;
-        _dummyCard = Instantiate(prefabDummy, _root, true);
-        _dummyCard.transform.localScale = Vector3.one;
+        _invisibleCard = Instantiate(prefabDummy, _root, true);
+        _invisibleCard.transform.localScale = Vector3.one;
         Debug.Log("Hand root: ", _root);
     }
 
@@ -41,29 +45,18 @@ public class Hand : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void ParentDummyCard(int cardIndex)
     {
-        _dummyIdx = cardIndex;
-        _dummyCard.transform.SetParent(transform);
+        _ivCardIdx = cardIndex;
+        _invisibleCard.transform.SetParent(transform);
         // transform.setParent()와 transform.parent의 차이
         // https://answers.unity.com/questions/1153512/transformparent-vs-transformsetparent.html ,https://kukuta.tistory.com/177
-        _dummyCard.transform.localScale = Vector3.one;
-        _dummyCard.transform.SetSiblingIndex(_dummyIdx);
+        _invisibleCard.transform.localScale = Vector3.one;
+        _invisibleCard.transform.SetSiblingIndex(_ivCardIdx);
     }
 
     public void UnparentDummyCard()
     {
-        _dummyCard.transform.SetParent(_root);
+        _invisibleCard.transform.SetParent(_root);
     }
-    
-    // call-back
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        _pntIn = true;
-        print(_pntIn);
-    }
+    //이렇게 말고 Swap하는 형태로 하나의 함수로 만들 수 있지 않을까
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        _pntIn = false;
-        print(_pntIn);
-    }
 }
