@@ -10,8 +10,6 @@ public class Hand : MonoBehaviour
     public GameObject prefabDummy;
 
     [HideInInspector]
-    public bool pntIn;
-    [HideInInspector]
     public int handLimit;
 
     private Transform _root;
@@ -40,6 +38,15 @@ public class Hand : MonoBehaviour
         {
             GameObject childCard = Instantiate(this.childCard, transform, true);
             childCard.transform.localScale = Vector3.one;
+        }
+    }
+
+    public void SetCardIndex()
+    {
+        Transform[] allChildren = GetComponentsInChildren<Transform>();
+        foreach (Transform child in allChildren)
+        {
+            child.GetComponent<Card>().SetIndex();
         }
     }
 

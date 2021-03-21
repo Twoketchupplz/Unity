@@ -10,7 +10,7 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     private Transform _root;
     private Transform _initParent;
     private Hand _parentScript;
-    private int _initIdx;
+    private int _idxInHand;
     private Vector2 _currentPosition;
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         _root = transform.root;
         _initParent = transform.parent;
         _parentScript = _initParent.GetComponent<Hand>();
-        _initIdx = transform.GetSiblingIndex();
-        Debug.Log("Card index is "+ _initIdx);
+        _idxInHand = transform.GetSiblingIndex();
+        Debug.Log("Card index is "+ _idxInHand);
     }
 
     // Update is called once per frame
@@ -27,12 +27,16 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
     }
 
+    public void SetIndex()
+    {
+        _idxInHand = transform.GetSiblingIndex();
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin");
+        Debug.Log("Begin, init idx: " + _idxInHand);
         transform.SetParent(_root);
-        _parentScript.ParentDummyCard(_initIdx);
-        
+        _parentScript.ParentDummyCard(_idxInHand);
         // GetComponentInParent<Hand>().ParentDummyCard(cardIdx);
     }
 
@@ -49,16 +53,15 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         if (RectTransformUtility.RectangleContainsScreenPoint(_initParent.GetComponent<RectTransform>(), _currentPosition))
         {
             transform.SetParent(_initParent);
-            transform.SetSiblingIndex(_initIdx);
+            transform.SetSiblingIndex(_idxInHand);
         }
         // 그렇지 않다면 이 오브젝트를 Destroy한다.
         else
         {
             Destroy(gameObject);
+            // Todo index의 파괴 여부는 별도이다.
+            // transform.DetachChildren();
+            // _parentScript.SetCardIndex();
         }
-        Debug.Log("init Parent: ", _initParent);
-        // 아무래도 콜백 함수가 끝날 때까지 다른 콜백함수가 끼어들 수 없는듯하다.
-        // 그리고 자식 오브젝트가 부모 오브젝트의 콜백함수를 사용하는듯?
-        // GetComponentInParent<Hand>().UnparentDummyCard(transform);
     }
 }
