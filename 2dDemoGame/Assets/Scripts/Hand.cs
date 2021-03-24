@@ -30,24 +30,19 @@ public class Hand : MonoBehaviour
         
     }
 
-    public void Draw()
+    public void Draw(int cardIdx)
     {
-        int handIndex = transform.childCount;
-        print(handIndex);
         if (transform.childCount < handLimit)
         {
             GameObject childCard = Instantiate(this.childCard, transform, true);
+            childCard.GetComponent<Card>().SetIdx(cardIdx);
             childCard.transform.localScale = Vector3.one;
         }
     }
 
-    public void SetCardIndex()
+    public void SwapCard(GameObject dest, GameObject src)
     {
-        Transform[] allChildren = GetComponentsInChildren<Transform>();
-        foreach (Transform child in allChildren)
-        {
-            child.GetComponent<Card>().SetIndex();
-        }
+        
     }
 
     public void ParentDummyCard(int cardIndex)
@@ -57,7 +52,7 @@ public class Hand : MonoBehaviour
         // transform.setParent()와 transform.parent의 차이
         // https://answers.unity.com/questions/1153512/transformparent-vs-transformsetparent.html ,https://kukuta.tistory.com/177
         _invisibleCard.transform.localScale = Vector3.one;
-        _invisibleCard.transform.SetSiblingIndex(_ivCardIdx);
+        _invisibleCard.transform.SetSiblingIndex(_ivCardIdx); //이부분에서 idx를 앞에서부터 세기 떄문에 문제가 발생함
     }
 
     public void UnparentDummyCard()

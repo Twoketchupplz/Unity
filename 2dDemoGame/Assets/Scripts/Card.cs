@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    // public GameObject hand;
     private Transform _root;
     private Transform _initParent;
     private Hand _parentScript;
@@ -18,7 +17,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         _root = transform.root;
         _initParent = transform.parent;
         _parentScript = _initParent.GetComponent<Hand>();
-        _idxInHand = transform.GetSiblingIndex();
         Debug.Log("Card index is "+ _idxInHand);
     }
 
@@ -27,17 +25,18 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
     }
 
-    public void SetIndex()
+    public void SetIdx(int idx)
     {
-        _idxInHand = transform.GetSiblingIndex();
+        _idxInHand = idx;
+        transform.SetSiblingIndex(_idxInHand);
+        Debug.Log("Set idx: " + transform.GetSiblingIndex());
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin, init idx: " + _idxInHand);
+        _idxInHand = transform.GetSiblingIndex();
         transform.SetParent(_root);
         _parentScript.ParentDummyCard(_idxInHand);
-        // GetComponentInParent<Hand>().ParentDummyCard(cardIdx);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -49,7 +48,6 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         _parentScript.UnparentDummyCard();
-        // 현재 마우스 위치가 초기 부모(hand)의 RectTransform 안에 있다면 오브젝트가 되돌아가 가고
         if (RectTransformUtility.RectangleContainsScreenPoint(_initParent.GetComponent<RectTransform>(), _currentPosition))
         {
             transform.SetParent(_initParent);
@@ -59,9 +57,8 @@ public class Card : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         else
         {
             Destroy(gameObject);
-            // Todo index의 파괴 여부는 별도이다.
-            // transform.DetachChildren();
-            // _parentScript.SetCardIndex();
+            // Todo index의 파괴 여부는 결정짓지 않아도 무방한가?
         }
     }
+
 }
