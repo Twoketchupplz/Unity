@@ -27,10 +27,10 @@ __Scale__                       | UI 오브젝트의 자체 크기. Width, Heigh
 ## Canvas
 Renderer Mode에 따라 설정할 수 있는 항목이 달라진다.
 
-프로퍼티 | 기능
+&nbsp;&nbsp;&nbsp;프로퍼티&nbsp;&nbsp;&nbsp; | 기능
 ----------------|------------------
 __Renderer Mode__| 스크린 또는 월드 공간에 렌더링하기 위해 사용된다. 아래 3개의 드롭다운 메뉴가 있다.
-&nbsp;&nbsp;Screen Space - OverLay  | UI 항목이 씬의 가장 상위계층으로 앞쪽에 표시된다. 씬이나 카메라에 상관없이 렌더링한다. 선택시(default) 아래 항목들을 조정할 수 있다.
+&nbsp;&nbsp;Screen Space - OverLay  | `Canvas`를 화면에 맞춘다.<br> `Canvas`의 크기 == 화면 크기. `Canvas`의 크기 != 카메라 크기<br> UI 항목이 씬의 가장 상위계층으로 앞쪽에 표시된다. 씬이나 카메라에 상관없이 렌더링한다. 선택시(default) 아래 항목들을 조정할 수 있다.
 &nbsp;&nbsp;&nbsp;&nbsp;Pixel Perfect       | UI가 확실하게 보이는 상태로 한다.
 &nbsp;&nbsp;&nbsp;&nbsp;Sort Order          |Canvas가 여러 개라면 순서를 설정한다.
 &nbsp;&nbsp;&nbsp;&nbsp;Target Display      |카메라가 여러 대 있을 때 그리는 카메라를 전환한다.
