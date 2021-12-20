@@ -10,7 +10,7 @@ public class Deck : MonoBehaviour, IPointerClickHandler
     public GameObject handObj;
 
     private int _drawCtr;
-    private List<GameObject> _deckList;
+    private Queue<GameObject> _deckList;
     private Transform _root;
     private Hand handScript;
 
@@ -24,7 +24,7 @@ public class Deck : MonoBehaviour, IPointerClickHandler
 
     void Start()
     {
-
+        
     }
 
     void Update()

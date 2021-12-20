@@ -87,5 +87,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dd6b28c0453e8c41b8d6be1d52aa976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DummyCard: {fileID: 8214081883238057993, guid: 82bdc56d3916b6344ab502ecb3893506,
-    type: 3}

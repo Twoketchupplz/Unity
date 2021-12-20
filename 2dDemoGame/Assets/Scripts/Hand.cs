@@ -14,7 +14,7 @@ public class Hand : MonoBehaviour
 
     private Transform _root;
     private GameObject _invisibleCard;
-    private int _ivCardIdx;
+    private int _invisibleCardIdx;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,12 +47,12 @@ public class Hand : MonoBehaviour
 
     public void ParentDummyCard(int cardIndex)
     {
-        _ivCardIdx = cardIndex;
+        _invisibleCardIdx = cardIndex;
         _invisibleCard.transform.SetParent(transform);
         // transform.setParent()와 transform.parent의 차이
         // https://answers.unity.com/questions/1153512/transformparent-vs-transformsetparent.html ,https://kukuta.tistory.com/177
         _invisibleCard.transform.localScale = Vector3.one;
-        _invisibleCard.transform.SetSiblingIndex(_ivCardIdx); //이부분에서 idx를 앞에서부터 세기 떄문에 문제가 발생함
+        _invisibleCard.transform.SetSiblingIndex(_invisibleCardIdx); //이부분에서 idx를 앞에서부터 세기 떄문에 문제가 발생함
     }
 
     public void UnparentDummyCard()
